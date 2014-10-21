@@ -193,6 +193,8 @@ def main():
     formats = ['pdf', 'eps']
 
     suite1 = Hockey('bruins')
+    print ('SUITE')
+    print (suite1)
     suite2 = Hockey('canucks')
 
     thinkplot.Clf()

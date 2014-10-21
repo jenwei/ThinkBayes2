@@ -1,4 +1,4 @@
-`"""This file contains code used in "Think Bayes",
+"""This file contains code used in "Think Bayes",
 by Allen B. Downey, available from greenteapress.com
 
 Copyright 2012 Allen B. Downey
@@ -22,10 +22,11 @@ class Sat(thinkbayes2.Suite, thinkbayes2.Joint):
         data: boolean, whether the answer is correct
         hypo: pair of (efficacy, difficulty)
         """
-        correct = data
-        e, d = hypo
-        p = ProbCorrect(e, d)
-        like = p if correct else 1-p
+        # TODO: fill this in
+        correct = data #whether it's correct or not (T or F)
+        eff,diff = hypo #(efficacy,difficulty)
+        p = probCorrect(eff,diff)
+        like = p if correct else like = 1-p
         return like
 
 
@@ -49,19 +50,21 @@ def Update(p, q, correct):
 
     returns: pair of new Pmfs
     """
-    joint = thinkbayes2.MakeJoint(p, q)
-    suite = Sat(joint)
+    # TODO: fill this in
+    # HINT: form a joint distribution, update it, then extract marginals
+    jointDist = thinkbayes2.MakeJoint(p,q)
+    suite = Sat(jointDist)
     suite.Update(correct)
-    p, q = suite.Marginal(0, label=p.label), suite.Marginal(1, label=q.label)
+    p,q = suite.Marginal(0,label=p.label),suite.Marginal(1,label=q.label)
     return p, q
 
 
 def main():
     p1 = thinkbayes2.MakeNormalPmf(0, 1, 3, n=101)
-    p1.label = 'p1'
+    p1.label = 'p1' 
     p2 = p1.Copy(label='p2')
 
-    q1 = thinkbayes2.MakeNormalPmf(0, 1, 3, n=101)
+    q1 = thinkbayes2.MakeNormalPmf(-1, 1, 3, n=101)
     q1.label = 'q1'
     q2 = q1.Copy(label='q2')
 

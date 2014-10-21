@@ -16,27 +16,33 @@ class Train(Dice):
 
     The likelihood function for the train problem is the same as
     for the Dice problem.
+    
     """
     def Likelihood(self, data, hypo):
-        N = hypo
-        k, m = data
-        if N < m:
-            return 0
+        """Computes the likelihood of the data under the hypothesis.
 
-        return m ** (k-1) / N**k
+        hypo: integer number of sides on the die
+        data: integer die roll
+        """
+        N = hypo
+        k,m = data #m = number of trains observed, k = highest # train seen
+        if m>N:
+            return 0
+        else:
+            return m**(k-1) / N**k
 
 
 def main():
     hypos = range(1, 1001)
     suite = Train(hypos)
 
-    data = 3, 70
+    data = (3,70)
     suite.Update(data)
-    print('posterior mean', suite.Mean())
+    thinkplot.Pmf(suite, label='after (%d,%d)' % data)
 
-    thinkplot.Pmf(suite, label='after 70')
     thinkplot.Show(xlabel='Number of trains',ylabel='PMF')
 
+    print('posterior mean', suite.Mean())
 
 if __name__ == '__main__':
     main()

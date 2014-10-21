@@ -21,8 +21,20 @@ class Electorate(thinkbayes2.Suite):
         hypo: 
         data: 
         """
-        like = 1
+        
+        a_hypo = hypo
+        mean, std, measurement = data #mean = mean prior error
+        e_hypo = measurement - a_hypo #error = e_hypo
+        like = thinkbayes2.EvalNormalPdf(e_hypo, mean, std) #likelihood of error in the distribution of error
         return like
+    
+    def Lose(self):
+        """Computes the probability of losing"""
+        total = 0 
+        for value, prob in self.Items():
+            if value < 50:
+                total += prob
+        return total
 
 
 def main():
@@ -36,6 +48,11 @@ def main():
 
     thinkplot.Pdf(suite, label='posterior')
     thinkplot.Show()
+    
+    print(suite.Mean())
+    print(suite.Std())
+    print(suite.Lose())
+    print(suite.probLess(50))
 
 
 if __name__ == '__main__':

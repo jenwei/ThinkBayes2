@@ -1,4 +1,4 @@
-`"""This file contains code used in "Think Bayes",
+"""This file contains code used in "Think Bayes",
 by Allen B. Downey, available from greenteapress.com
 
 Copyright 2012 Allen B. Downey
@@ -13,8 +13,8 @@ import thinkbayes2
 import thinkplot
 
 
-class Sat(thinkbayes2.Suite, thinkbayes2.Joint):
-    """Represents the distribution of p_correct for a test-taker."""
+class Olympian(thinkbayes2.Suite, thinkbayes2.Joint):
+    """Represents the distribution of medalling for an athlete."""
 
     def Likelihood(self, data, hypo):
         """Computes the likelihood of data under hypo.

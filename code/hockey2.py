@@ -78,12 +78,12 @@ def main():
 
     # compute posterior prob that the Blackhawks are better than the Bruins
     post_prob = suite1 > suite2
-    print('Posterior prob Blackhawks > Bruins:', post_prob)
+    print('Posterior probability that the Blackhawks are better than the Bruins:', post_prob)
 
     prior_odds = 1
     post_odds = post_prob / (1 - post_prob)
     k = post_odds / prior_odds
-    print('Bayes factor', k)    
+    print('Bayes factor:', k)    
     
 
 if __name__ == '__main__':

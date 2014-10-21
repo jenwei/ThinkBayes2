@@ -22,7 +22,7 @@ class Soccer(thinkbayes2.Suite):
         data: interarrival time in minutes
         """
         x = data
-        lam = hypo / 90
+        lam = hypo / 90 #out of 90 minutes
         like = thinkbayes2.EvalExponentialPdf(x, lam)
         return like
 
