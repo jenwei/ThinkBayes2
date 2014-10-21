@@ -55,17 +55,17 @@ def main():
     suite1.Update(1)
     suite2.Update(1)
     #Game3
-    suite1.Update(2)
-    suite2.Update(0)
+    suite1.Update(0)
+    suite2.Update(2)
     #Game4
     suite1.Update(5)
     suite2.Update(5)
     #Game5
-    suite1.Update(1)
-    suite2.Update(3)
+    suite1.Update(3)
+    suite2.Update(1)
     #Game6
-    suite1.Update(2)
-    suite2.Update(3)
+    suite1.Update(3)
+    suite2.Update(2)
 
     print('Posterior mean of Blackhawks:', suite1.Mean())
     print('Posterior mean of Bruins:', suite2.Mean())
