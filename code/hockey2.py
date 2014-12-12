@@ -1,8 +1,5 @@
-"""This file contains code for use with "Think Bayes",
-by Allen B. Downey, available from greenteapress.com
-
-Copyright 2014 Allen B. Downey
-License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
+"""
+THIS (should be) the code for the hockey case study.
 """
 
 from __future__ import print_function, division
